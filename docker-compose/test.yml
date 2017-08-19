@@ -1,0 +1,13 @@
+version: '3.2'
+
+services:
+  micro_boilerplate:
+    build: ../
+    ports:
+      - 3000:3000
+    env_file:
+      - ./env/test.env
+    volumes:
+      - type: bind
+        source: ../tests
+        target: /usr/src/app/tests

@@ -29,7 +29,7 @@ export const parseUpdateParams = (node) => (params) => {
             typeof params[prop] !== 'object' &&
             typeof params[prop] !== 'function'
         ) {
-            result.push(`SET ${node}.${prop} = ${params[prop]}`)
+            result.push(`SET ${node}.${prop} = ${params[prop]}`);
         }
     }
     return result;

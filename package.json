@@ -16,12 +16,15 @@
  "scripts": {
   "build": "babel src -d build",
   "dev": "nodemon --exec babel-node ./src/index.js",
-  "docker-dev": "docker-compose -f docker-compose/development.yml up",
+  "docker:dev": "docker-compose -f docker-compose/development.yml up",
+  "docker:test": "docker-compose -f docker-compose/test.yml up",
   "babel-node": "babel-node --presets=['env', 'es2017']",
   "debug": "nodemon  --exec babel-node --presets=[env,es2017] src/index.js",
   "prod": "npm run build && node ./build/index.js",
   "test": "ava",
-  "test:watch": "ava --watch"
+  "test:watch": "ava --watch",
+  "delete:containers": "docker rm $(docker ps -a -q)",
+  "delete:images": "docker rmi $(docker images -a -q)"
  },
  "devDependencies": {
   "ava": "^0.22.0",
