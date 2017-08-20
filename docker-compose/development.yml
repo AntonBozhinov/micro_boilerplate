@@ -11,3 +11,22 @@ services:
       - type: bind
         source: ../src
         target: /usr/src/app/src
+    networks:
+      - backend
+  neo4j_db:
+    image: neo4j
+    ports:
+      - 7474:7474
+      - 7687:7687
+    env_file:
+      - ./env/dev.env
+    volumes:
+      - type: bind
+        source: ${HOME}/neo4j/data
+        target: /data
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge

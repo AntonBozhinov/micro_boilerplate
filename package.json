@@ -45,6 +45,7 @@
   ],
   "concurrency": 5,
   "failFast": true,
+  "sourceMaps": true,
   "failWithoutAssertions": false,
   "require": [
    "babel-register"
