@@ -13,17 +13,15 @@ services:
         target: /usr/src/app/tests
     networks:
       - backend
-  neo4j_db:
+    depends_on:
+      - neo4j_test
+  neo4j_test:
     image: neo4j
     ports:
       - 7474:7474
       - 7687:7687
     env_file:
       - ./env/test.env
-    volumes:
-      - type: bind
-        source: ${HOME}/neo4j/test
-        target: /data
     networks:
       - backend
 

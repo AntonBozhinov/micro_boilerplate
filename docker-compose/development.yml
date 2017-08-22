@@ -13,6 +13,8 @@ services:
         target: /usr/src/app/src
     networks:
       - backend
+    depends_on:
+      - neo4j_db
   neo4j_db:
     image: neo4j
     ports:
